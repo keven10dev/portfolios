@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 50% 5%;
+    --foreground: 210 40% 98%;
+    --card: 260 50% 8%;
+    --card-foreground: 210 40% 98%;
+    --popover: 260 50% 8%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 270 75% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 260 20% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 260 30% 15%;
+    --muted-foreground: 215 20% 75%;
+    --accent: 190 90% 50%;
+    --accent-foreground: 260 50% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 260 30% 20%;
+    --input: 260 30% 16%;
+    --ring: 270 75% 60%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-purple-500 animate-text-shimmer;
+  background-size: 200% auto;
+}
+
+.glow-effect {
+  @apply relative;
+}
+
+.glow-effect::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-r from-purple-600/20 via-cyan-400/20 to-purple-600/20 rounded-lg blur-xl opacity-75 -z-10 animate-pulse-glow;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.glow-border {
+  @apply relative;
+}
+
+.glow-border::after {
+  content: "";
+  @apply absolute inset-0 rounded-lg border border-purple-500/50 -z-10;
+  box-shadow: 0 0 15px 2px rgba(139, 92, 246, 0.3);
+}
+
+.hero-glow {
+  @apply absolute inset-0 bg-hero-glow -z-10;
+}
+
+.side-glow {
+  @apply absolute inset-0 bg-side-glow -z-10;
+}
+
+.tech-icon {
+  @apply relative flex items-center justify-center;
+}
+
+.tech-icon::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-full blur-xl opacity-0 scale-0 transition-all duration-300;
+}
+
+.tech-icon:hover::before {
+  @apply opacity-100 scale-150;
+}
+
+.nav-link {
+  @apply relative overflow-hidden;
+}
+
+.nav-link::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-cyan-400 transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -10px rgba(139, 92, 246, 0.2);
+}
+
+.floating-element {
+  @apply animate-float;
+}
+
